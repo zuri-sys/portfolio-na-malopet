@@ -26,6 +26,15 @@ const projects = [
     url: 'https://github.com/zuri-sys/medicine-inventory.git',
     theme: 'medicine',
   },
+  {
+    title: 'Postman Testing',
+    short: 'Postman Testing',
+    category: 'API testing · Documentation',
+    description: 'Documented product API checks and findings on ordering and duplicate user data.',
+    url: '/docs/postman-testing.pdf',
+    theme: 'postman',
+    isDocument: true,
+  },
 ]
 
 function ProjectIllustration({ theme }) {
@@ -66,6 +75,23 @@ function ProjectIllustration({ theme }) {
           </div>
         </div>
         <div className="medicine-cross">+</div>
+      </div>
+    )
+  }
+
+  if (theme === 'postman') {
+    return (
+      <div className="illustration illustration-postman" aria-hidden="true">
+        <div className="test-halo halo-one" />
+        <div className="test-halo halo-two" />
+        <div className="test-console">
+          <div className="test-console-head"><span>API checks</span><small>RUN / RESULTS</small></div>
+          <div className="test-request"><b>POST</b><span>/api/v1/products</span><em>201</em></div>
+          <div className="test-request"><b>GET</b><span>/api/v1/products</span><em>200</em></div>
+          <div className="test-request"><b>DELETE</b><span>/api/v1/products/1</span><em>200</em></div>
+          <div className="test-console-foot"><span>03 requests documented</span><span>FINDINGS NOTED ↗</span></div>
+        </div>
+        <div className="test-stamp">QA / 2026</div>
       </div>
     )
   }
@@ -119,11 +145,11 @@ function App() {
               <h1 id="showcase-heading">{project.title}</h1>
               <p>{project.description}</p>
             </div>
-            <a className="stage-art" href={project.url} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} repository on GitHub`}>
+            <a className="stage-art" href={project.url} target="_blank" rel="noreferrer" aria-label={project.isDocument ? 'Open Postman Testing PDF report' : `Open ${project.title} repository on GitHub`}>
               <ProjectIllustration theme={project.theme} />
-              <span className="art-open">View project <span aria-hidden="true">↗</span></span>
+              <span className="art-open">{project.isDocument ? 'View report' : 'View project'} <span aria-hidden="true">↗</span></span>
             </a>
-            <span className="visual-note">Original visual concept · Repository linked</span>
+            <span className="visual-note">Original visual concept · {project.isDocument ? 'PDF report linked' : 'Repository linked'}</span>
           </div>
 
           <div className="showcase-controls">
