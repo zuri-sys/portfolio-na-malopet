@@ -18,6 +18,14 @@ const projects = [
     url: 'https://github.com/zuri-sys/task-manager-na-maangas.git',
     theme: 'tasks',
   },
+  {
+    title: 'Medicine Inventory',
+    short: 'Medicine Inventory',
+    category: 'Lab exam · Web application',
+    description: 'A medicine inventory interface connected to a persistent REST API.',
+    url: 'https://github.com/zuri-sys/medicine-inventory.git',
+    theme: 'medicine',
+  },
 ]
 
 function ProjectIllustration({ theme }) {
@@ -38,6 +46,26 @@ function ProjectIllustration({ theme }) {
         </div>
         <div className="floating-label label-one">request</div>
         <div className="floating-label label-two">response</div>
+      </div>
+    )
+  }
+
+  if (theme === 'medicine') {
+    return (
+      <div className="illustration illustration-medicine" aria-hidden="true">
+        <div className="medicine-ring ring-one" />
+        <div className="medicine-ring ring-two" />
+        <div className="medicine-panel">
+          <div className="medicine-head"><span>Inventory</span><small>MEDICINES</small></div>
+          <div className="medicine-summary"><b>Available stock</b><strong>128</strong><i>Across all items</i></div>
+          <div className="medicine-table">
+            <div><span>Item</span><span>Qty</span><span>Status</span></div>
+            <div><span>Paracetamol</span><span>42</span><em>In stock</em></div>
+            <div><span>Medicine B</span><span>18</span><em>In stock</em></div>
+            <div><span>Medicine C</span><span>08</span><em>Low</em></div>
+          </div>
+        </div>
+        <div className="medicine-cross">+</div>
       </div>
     )
   }
@@ -82,7 +110,7 @@ function App() {
         <section className={`showcase showcase-${project.theme}`} id="projects" aria-labelledby="showcase-heading">
           <div className="showcase-intro">
             <p>Selected work by Vincent James G. Postrano</p>
-            <span>01 — 02</span>
+            <span>01 — 0{projects.length}</span>
           </div>
 
           <div className="stage" key={project.theme}>
@@ -121,7 +149,7 @@ function App() {
         </section>
 
         <section className="about" id="about" aria-labelledby="about-heading">
-          <div className="section-index"><span>About Vincent</span><span>03 / 04</span></div>
+          <div className="section-index"><span>About Vincent</span><span>0{projects.length + 1} / 0{projects.length + 2}</span></div>
           <div className="about-layout">
             <h2 id="about-heading">A little curiosity<br />goes a long way.</h2>
             <div className="about-copy">
@@ -132,7 +160,7 @@ function App() {
         </section>
 
         <section className="contact" id="contact" aria-labelledby="contact-heading">
-          <div className="section-index"><span>Next chapter</span><span>04 / 04</span></div>
+          <div className="section-index"><span>Next chapter</span><span>0{projects.length + 2} / 0{projects.length + 2}</span></div>
           <p>Have an idea to share?</p>
           <h2 id="contact-heading">Let’s make<br />something <em>work.</em></h2>
           <a href="https://github.com/zuri-sys" target="_blank" rel="noreferrer">Connect on GitHub <span aria-hidden="true">↗</span></a>

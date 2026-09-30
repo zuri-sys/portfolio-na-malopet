@@ -9,6 +9,7 @@
 
 .showcase { --stage-bg: #d5deeb; --ink: #253756; --accent: #8c9ec4; position: relative; display: flex; flex-direction: column; min-height: calc(100svh - 84px); padding: 25px clamp(20px, 4vw, 64px) 24px; background: var(--stage-bg); color: var(--ink); transition: background .5s, color .5s; }
 .showcase-tasks { --stage-bg: #dcd9e6; --ink: #403951; --accent: #a6a0bd; }
+.showcase-medicine { --stage-bg: #dbe5dc; --ink: #30463f; --accent: #95b1a0; }
 .showcase-intro, .showcase-controls { display: flex; align-items: center; justify-content: space-between; }
 .showcase-intro { font: 11px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .06em; }
 .showcase-intro p { margin: 0; }
@@ -54,6 +55,24 @@
 .board-row.done i { opacity: .35; }
 .board-row small { margin-left: auto; font: 9px 'DM Mono', monospace; color: #8c8793; }
 .floating-note { position: absolute; right: 5%; bottom: 12%; padding: 17px 20px; background: #ece8ef; border-radius: 5px; transform: rotate(-8deg); font: italic 23px/1 'Instrument Serif', Georgia, serif; box-shadow: 0 9px 20px #44394c33; }
+.illustration-medicine { background: radial-gradient(circle at 20% 12%, #d8ead9, transparent 40%), linear-gradient(135deg, #85ae9c, #b6d2b7); }
+.medicine-ring { position: absolute; border: 1px solid #e0f0e0b8; border-radius: 50%; }
+.ring-one { width: 63%; aspect-ratio: 1; left: -20%; bottom: -54%; }
+.ring-two { width: 42%; aspect-ratio: 1; right: -11%; top: -40%; }
+.medicine-panel { position: relative; width: 72%; height: 77%; padding: 5% 6%; border-radius: 14px; background: #f6f9f4; box-shadow: 18px 22px 0 #416f5e5c; transform: rotate(-3deg); color: #32483f; }
+.medicine-head { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid #c6d8ca; padding-bottom: 5%; }
+.medicine-head span { font: 400 clamp(27px, 3.6vw, 45px) 'Instrument Serif', Georgia, serif; }
+.medicine-head small { font: 9px 'DM Mono', monospace; letter-spacing: .06em; }
+.medicine-summary { display: grid; grid-template-columns: 1fr auto; padding: 5% 0; }
+.medicine-summary b, .medicine-summary i { font: 10px 'DM Mono', monospace; }
+.medicine-summary b { align-self: end; }
+.medicine-summary strong { grid-column: 2; grid-row: 1 / 3; font: 400 clamp(31px, 4vw, 52px) 'Instrument Serif', Georgia, serif; }
+.medicine-summary i { grid-column: 1; font-style: normal; color: #789384; }
+.medicine-table { font: clamp(8px, 1.1vw, 12px) 'DM Mono', monospace; }
+.medicine-table div { display: grid; grid-template-columns: 2fr .7fr 1fr; padding: 2.8% 0; border-top: 1px solid #d5e0d5; }
+.medicine-table div:first-child { color: #789384; }
+.medicine-table em { font-style: normal; }
+.medicine-cross { position: absolute; right: 7%; bottom: 7%; width: 56px; height: 56px; display: grid; place-items: center; border-radius: 50%; background: #e8f2e7; color: #527660; font: 36px 'DM Sans', sans-serif; transform: rotate(14deg); box-shadow: 0 8px 18px #3e68532f; }
 .art-open { position: absolute; right: 15px; bottom: 15px; background: #f7f8fa; border-radius: 100px; padding: 10px 14px; font-size: 11px; font-weight: 700; }
 .art-open span { margin-left: 9px; }
 .visual-note { margin-top: 14px; font: 10px 'DM Mono', monospace; opacity: .72; }
@@ -114,11 +133,15 @@
   .task-board { width: 77%; height: 70%; }
   .task-board-head { font-size: 30px; }
   .floating-note { font-size: 18px; }
+  .medicine-panel { width: 84%; height: 63%; padding: 7%; }
+  .medicine-head span { font-size: 29px; }
+  .medicine-table { font-size: 8px; }
+  .medicine-cross { width: 43px; height: 43px; font-size: 28px; }
   .showcase-controls { flex-wrap: wrap; gap: 10px; }
   .counter { min-width: auto; }
   .counter strong { font-size: 22px; }
-  .project-tabs { order: 3; width: 100%; justify-content: space-between; }
-  .project-tabs button { font-size: 11px; }
+  .project-tabs { order: 3; width: 100%; justify-content: flex-start; overflow-x: auto; gap: 23px; scrollbar-width: thin; }
+  .project-tabs button { flex: 0 0 auto; font-size: 11px; white-space: nowrap; }
   .arrow-controls { margin-left: auto; }
   .about { padding-top: 50px; }
   .about-layout { padding: 90px 0; }
